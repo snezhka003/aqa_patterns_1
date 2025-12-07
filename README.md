@@ -1,4 +1,4 @@
-[![Java CI with Gradle](https://github.com/snezhka003/aqa_patterns_task1/actions/workflows/gradle.yml/badge.svg)](https://github.com/snezhka003/aqa_patterns_task1/actions/workflows/gradle.yml)
+[![Java CI with Gradle](https://github.com/snezhka003/aqa_patterns_1/actions/workflows/gradle.yml/badge.svg)](https://github.com/snezhka003/aqa_patterns_1/actions/workflows/gradle.yml)
 
 ## Задача №1: заказ доставки карты (изменение даты)
 
