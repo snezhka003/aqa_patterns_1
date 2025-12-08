@@ -24,7 +24,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='city'].input_invalid span.input__sub").should(Condition.text("Поле обязательно для заполнения"));
+        $("[data-test-id='city'].input_invalid span.input__sub").should(Condition.text("Поле обязательно для заполнения")).should(Condition.visible);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='date'] span.input_invalid span.input__sub").should(Condition.text("Неверно введена дата"));
+        $("[data-test-id='date'] span.input_invalid span.input__sub").should(Condition.text("Неверно введена дата")).should(Condition.visible);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='name'].input_invalid span.input__sub").should(Condition.text("Поле обязательно для заполнения"));
+        $("[data-test-id='name'].input_invalid span.input__sub").should(Condition.text("Поле обязательно для заполнения")).should(Condition.visible);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='name'] input.input__control").setValue(validUser.getName());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='phone'].input_invalid span.input__sub").should(Condition.text("Поле обязательно для заполнения"));
+        $("[data-test-id='phone'].input_invalid span.input__sub").should(Condition.text("Поле обязательно для заполнения")).should(Condition.visible);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='name'] input.input__control").setValue(validUser.getName());
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("button.button").click();
-        $("[data-test-id='agreement'].input_invalid span.checkbox__text").should(Condition.text("Я соглашаюсь с условиями обработки и использования моих персональных данных"));
+        $("[data-test-id='agreement'].input_invalid span.checkbox__text").should(Condition.text("Я соглашаюсь с условиями обработки и использования моих персональных данных")).should(Condition.visible);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='city'].input_invalid span.input__sub").should(Condition.text("Доставка в выбранный город недоступна"));
+        $("[data-test-id='city'].input_invalid span.input__sub").should(Condition.text("Доставка в выбранный город недоступна")).should(Condition.visible);
     }
 
     @Test
@@ -101,7 +101,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='date'] span.input_invalid span.input__sub").should(Condition.text("Заказ на выбранную дату невозможен"));
+        $("[data-test-id='date'] span.input_invalid span.input__sub").should(Condition.text("Заказ на выбранную дату невозможен")).should(Condition.visible);
     }
 
     @Test
@@ -117,7 +117,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='date'] span.input_invalid span.input__sub").should(Condition.text("Неверно введена дата"));
+        $("[data-test-id='date'] span.input_invalid span.input__sub").should(Condition.text("Неверно введена дата")).should(Condition.visible);
     }
 
     @Test
@@ -129,7 +129,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='name'].input_invalid span.input__sub").should(Condition.text("Имя и Фамилия указаны неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id='name'].input_invalid span.input__sub").should(Condition.text("Имя и Фамилия указаны неверно. Допустимы только русские буквы, пробелы и дефисы.")).should(Condition.visible);
     }
 
     @Test
@@ -141,6 +141,6 @@ public class DeliveryNegativeTest {
         $("[data-test-id='phone'] input.input__control").setValue("+790012345");
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='phone'].input_invalid span.input__sub").should(Condition.text("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+        $("[data-test-id='phone'].input_invalid span.input__sub").should(Condition.text("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.")).should(Condition.visible);
     }
 }

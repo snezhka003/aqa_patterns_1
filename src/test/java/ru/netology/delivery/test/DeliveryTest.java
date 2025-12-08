@@ -1,16 +1,12 @@
 package ru.netology.delivery.test;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.DataGenerator;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -24,9 +20,7 @@ public class DeliveryTest {
     @Test
     @DisplayName("Should Be Default Date More Then Current Date For Three Days")
     void shouldBeDefaultDateMoreThenCurrentDateForThreeDays() {
-        String defaultDate = DataGenerator.generateDate(3);
-
-        $("[data-test-id='date'] input.input__control").should(Condition.value(defaultDate));
+        $("[data-test-id='date'] input.input__control").should(Condition.value(DataGenerator.generateDate(3)));
     }
 
     @Test
@@ -48,8 +42,8 @@ public class DeliveryTest {
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='success-notification'] div.notification__title").should(Condition.text("Успешно!"), Duration.ofSeconds(15));
-        $("[data-test-id='success-notification'] div.notification__content").should(Condition.text("Встреча успешно запланирована на " + firstMeetingDate));
+        $("[data-test-id='success-notification'] div.notification__title").should(Condition.text("Успешно!")).should(Condition.visible);
+        $("[data-test-id='success-notification'] div.notification__content").should(Condition.text("Встреча успешно запланирована на " + firstMeetingDate)).should(Condition.visible);
 
         //после успешно запланированной первой встречи меняем дату на значение переменной secondMeetingDate
         $("[data-test-id='date'] input.input__control")
@@ -57,13 +51,13 @@ public class DeliveryTest {
                 .press(Keys.DELETE)
                 .setValue(secondMeetingDate);
         $("button.button").click();
-        $("[data-test-id='replan-notification'] div.notification__title").should(Condition.text("Необходимо подтверждение"), Duration.ofSeconds(15));
-        $("[data-test-id='replan-notification'] div.notification__content").should(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
+        $("[data-test-id='replan-notification'] div.notification__title").should(Condition.text("Необходимо подтверждение")).should(Condition.visible);
+        $("[data-test-id='replan-notification'] div.notification__content").should(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?")).should(Condition.visible);
 
         //после получения предложения перепланировать встречу нажимаем Перепланировать
         $("[data-test-id='replan-notification'] button.button").click();
-        $("[data-test-id='success-notification'] div.notification__title").should(Condition.text("Успешно!"), Duration.ofSeconds(15));
-        $("[data-test-id='success-notification'] div.notification__content").should(Condition.text("Встреча успешно запланирована на " + secondMeetingDate));
+        $("[data-test-id='success-notification'] div.notification__title").should(Condition.text("Успешно!")).should(Condition.visible);
+        $("[data-test-id='success-notification'] div.notification__content").should(Condition.text("Встреча успешно запланирована на " + secondMeetingDate)).should(Condition.visible);
     }
 
     @Test
@@ -81,7 +75,7 @@ public class DeliveryTest {
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        $("[data-test-id='success-notification'] div.notification__title").should(Condition.text("Успешно!"), Duration.ofSeconds(15));
-        $("[data-test-id='success-notification'] div.notification__content").should(Condition.text("Встреча успешно запланирована на " + planningDate));
+        $("[data-test-id='success-notification'] div.notification__title").should(Condition.text("Успешно!")).should(Condition.visible);
+        $("[data-test-id='success-notification'] div.notification__content").should(Condition.text("Встреча успешно запланирована на " + planningDate)).should(Condition.visible);
     }
 }
