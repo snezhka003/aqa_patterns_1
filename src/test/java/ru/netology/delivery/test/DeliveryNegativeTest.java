@@ -55,7 +55,7 @@ public class DeliveryNegativeTest {
         $("button.button").click();
         $("[data-test-id='name'].input_invalid span.input__sub").should(Condition.text("Поле обязательно для заполнения")).should(Condition.visible);
     }
-
+//почему-то в CI этот тест упал, хотя локально работает корректно
     @Test
     void shouldBeFailedRegisterByEmptyPhone() {
         var validUser = DataGenerator.Registration.generateUser("ru");
