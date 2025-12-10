@@ -1,10 +1,13 @@
 package ru.netology.delivery.test;
 
 import com.codeborne.selenide.Condition;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.DataGenerator;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -79,7 +82,7 @@ public class DeliveryNegativeTest {
     void shouldBeFailedRegisterByInvalidCity() {
         var validUser = DataGenerator.Registration.generateUser("ru");
 
-        $("[data-test-id='city'] input.input__control").setValue("Котлас");
+        $("[data-test-id='city'] input.input__control").setValue(DataGenerator.generateInvalidCity());
         $("[data-test-id='name'] input.input__control").setValue(validUser.getName());
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
@@ -90,13 +93,13 @@ public class DeliveryNegativeTest {
     @Test
     void shouldBeFailedRegisterByDateLessThenThreeDaysAwayFromCurrentDate() {
         var validUser = DataGenerator.Registration.generateUser("ru");
-        String planningDate = DataGenerator.generateDate(2);
+        String invalidPlanningDate = DataGenerator.generateDate(2);
 
         $("[data-test-id='city'] input.input__control").setValue(validUser.getCity());
         $("[data-test-id='date'] input.input__control")
                 .doubleClick()
                 .press(Keys.DELETE)
-                .setValue(planningDate);
+                .setValue(invalidPlanningDate);
         $("[data-test-id='name'] input.input__control").setValue(validUser.getName());
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
@@ -112,7 +115,7 @@ public class DeliveryNegativeTest {
         $("[data-test-id='date'] input.input__control")
                 .doubleClick()
                 .press(Keys.DELETE)
-                .setValue("30.02.2025");
+                .setValue(DataGenerator.generateInvalidDate());
         $("[data-test-id='name'] input.input__control").setValue(validUser.getName());
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
@@ -125,7 +128,7 @@ public class DeliveryNegativeTest {
         var validUser = DataGenerator.Registration.generateUser("ru");
 
         $("[data-test-id='city'] input.input__control").setValue(validUser.getCity());
-        $("[data-test-id='name'] input.input__control").setValue("Petrov");
+        $("[data-test-id='name'] input.input__control").setValue(DataGenerator.generateName(new Faker(new Locale("en"))));
         $("[data-test-id='phone'] input.input__control").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $("button.button").click();
@@ -138,7 +141,7 @@ public class DeliveryNegativeTest {
 
         $("[data-test-id='city'] input.input__control").setValue(validUser.getCity());
         $("[data-test-id='name'] input.input__control").setValue(validUser.getName());
-        $("[data-test-id='phone'] input.input__control").setValue("+790012345");
+        $("[data-test-id='phone'] input.input__control").setValue(DataGenerator.generateInvalidPhone(new Faker(new Locale("ru"))));
         $("[data-test-id='agreement']").click();
         $("button.button").click();
         $("[data-test-id='phone'].input_invalid span.input__sub").should(Condition.text("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.")).should(Condition.visible);
