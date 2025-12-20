@@ -23,3 +23,23 @@
 Утилитными называют классы, у которых приватный конструктор и статичные методы.
 
 Обратите внимание, что Faker может генерировать не совсем в нужном для вас формате.
+
+## Задача №1 (к лекции по репортингу): проснулись (Allure)
+
+В одном из предыдущих проектов [Patterns](https://github.com/netology-code/aqa-homeworks/tree/master/patterns) вы тестировали функциональности заказа карт.
+
+Ваше руководство узнало на конференции про такой замечательный инструмент, как Allure, который позволяет делать репортинг более наглядным и требует от вас интегрировать его в ваши тесты.
+
+Начать решили именно с функции доставки карт.
+
+Вам нужно:   
+* взять ваш проект (см. «Как сдавать задачи») и прикрутить туда Allure, интегрированный с Selenide 
+* удостоверится, что при локальном запуске всё работает, отчёты генерируются, скриншоты прикрепляются, и вы можете их посмотреть через Allure 
+* приложить в файл README репозитория скриншоты отчета Allure:
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/48465a7e-a213-440a-a8ab-5e6ed33f61e4" />
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/2388858a-d02b-4a1c-bf84-162765247df5" />
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/18b11d72-94f7-4553-823e-835a25bc29a8" />
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/df8c6a1f-3673-48bf-a38c-c870005724f7" />
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/ac50e2ad-fa8e-49fe-ae53-2b1bf6ed92ec" />
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/6b63ba41-cbb0-42f2-826c-27a43dea92a2" />
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/43185c24-580a-40a0-8b21-4bd20825988d" />
